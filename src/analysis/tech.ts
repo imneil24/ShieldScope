@@ -18,6 +18,7 @@ export function detectTechnologies(
   const lowerHtml = html.slice(0, 250_000).toLowerCase();
   const scripts = scriptSrcs.map((s) => s.toLowerCase());
   const links = linkHints.map((s) => s.toLowerCase());
+  const gAny = globals as Record<string, unknown>;
 
   const add = (t: TechHit) => hits.push(t);
 
@@ -58,7 +59,7 @@ export function detectTechnologies(
   if (typeof globals.React !== 'undefined' || scripts.some((u) => u.includes('react'))) {
     add({ name: 'React', confidence: 'medium', evidence: 'React global or react-related bundles' });
   }
-  if (typeof globals.vue !== 'undefined' || scripts.some((u) => u.includes('vue.'))) {
+  if (typeof gAny.Vue !== 'undefined' || scripts.some((u) => u.includes('vue.'))) {
     add({ name: 'Vue', confidence: 'medium', evidence: 'Vue global or vue bundle references' });
   }
   if (typeof globals.angular !== 'undefined' || meta['angular-version']) {
