@@ -1,0 +1,75 @@
+{
+  "jquery": {
+    "name": "jQuery",
+    "rules": [
+      {
+        "safeAtOrAbove": "1.12.0",
+        "severity": "high",
+        "cves": ["CVE-2015-9251", "CVE-2019-11358"],
+        "note": "Legacy 1.x before hardening patches."
+      },
+      {
+        "safeAtOrAbove": "3.4.1",
+        "severity": "medium",
+        "cves": ["CVE-2019-11358"],
+        "note": "Prototype pollution defenses improved in 3.4.1+."
+      },
+      {
+        "safeAtOrAbove": "3.5.0",
+        "severity": "low",
+        "cves": ["CVE-2020-11022"],
+        "note": "HTML parsing edge cases addressed in 3.5.0+."
+      }
+    ]
+  },
+  "bootstrap": {
+    "name": "Bootstrap (JS)",
+    "rules": [
+      {
+        "safeAtOrAbove": "4.3.1",
+        "severity": "medium",
+        "cves": ["CVE-2019-8331"],
+        "note": "Tooltip/popover XSS class in older 4.x."
+      },
+      {
+        "safeAtOrAbove": "5.3.3",
+        "severity": "low",
+        "cves": [],
+        "note": "Stay on latest patch for your major line."
+      }
+    ]
+  },
+  "angularjs": {
+    "name": "AngularJS (1.x)",
+    "rules": [
+      {
+        "safeAtOrAbove": "100.0.0",
+        "severity": "high",
+        "cves": ["EOL"],
+        "note": "AngularJS is end-of-life; no supported security releases."
+      }
+    ]
+  },
+  "vue": {
+    "name": "Vue",
+    "rules": [
+      {
+        "safeAtOrAbove": "3.0.0",
+        "severity": "low",
+        "cves": [],
+        "note": "Vue 2 is EOL; prefer Vue 3 for ongoing patches."
+      }
+    ]
+  },
+  "react": {
+    "name": "React",
+    "rules": [
+      {
+        "safeAtOrAbove": "18.3.0",
+        "severity": "low",
+        "cves": [],
+        "note": "Keep React aligned with security advisories from Meta."
+      }
+    ]
+  }
+}

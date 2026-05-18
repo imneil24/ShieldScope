@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "AI Website Security Inspector",
+  "version": "1.0.0",
+  "description": "Passive, local-only security and technology analysis. No cloud, no paid APIs.",
+  "permissions": ["activeTab", "scripting", "storage", "tabs", "webRequest"],
+  "host_permissions": ["<all_urls>"],
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Website Security Inspector",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-start.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js", "data/vulnerabilities.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
